@@ -1,9 +1,11 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name='django-model-auditor',
-    version='',
-    packages=['migrations'],
+    version='0.0.1',
     url='',
     license='',
     author='vishalagrawal',
@@ -13,5 +15,7 @@ setup(
     ],
     python_requires='>=3.8',
     author_email='',
+    long_description=long_description,
+    packages=find_packages(),
     description='An extension to the Django web framework that provides version control for model instances.'
 )
