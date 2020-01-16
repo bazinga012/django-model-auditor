@@ -46,8 +46,11 @@ object.field1 = "FOO"
 object.field2 = "BAR"
 object.save() #will create another entry in auditlog model
 
-#To get previous versions of the object
-previous_versions = AuditLog.get_prev_versions(object)
+#To get previous versions of the object 
+previous_versions = AuditLog.get_prev_versions(object, limit=2)
+
+#By default get_prev_versions return only last_prev_version to 
+#get more versions we need to specify limit
 
 latest_prev_version = previous_versions[0]
 print("%s %s"%(latest_prev_version.field1, latest_prev_version.field2)) # "Foo","Bar"
