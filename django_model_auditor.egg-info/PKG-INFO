@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-model-auditor
-Version: 0.0.3
+Version: 0.0.4
 Summary: An extension to the Django web framework that provides version control for model instances.
 Home-page: UNKNOWN
 Author: vishalagrawal
@@ -54,8 +54,11 @@ Description: # django-model-auditor
         object.field2 = "BAR"
         object.save() #will create another entry in auditlog model
         
-        #To get previous versions of the object
-        previous_versions = AuditLog.get_prev_versions(object)
+        #To get previous versions of the object 
+        previous_versions = AuditLog.get_prev_versions(object, limit=2)
+        
+        #By default get_prev_versions return only last_prev_version to 
+        #get more versions we need to specify limit
         
         latest_prev_version = previous_versions[0]
         print("%s %s"%(latest_prev_version.field1, latest_prev_version.field2)) # "Foo","Bar"
