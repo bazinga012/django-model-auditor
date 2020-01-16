@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='django-model-auditor',
-    version='0.0.1',
+    version='0.0.3',
     url='',
     license='',
     author='vishalagrawal',
@@ -15,6 +15,7 @@ setup(
     ],
     python_requires='>=3.8',
     author_email='',
+    long_description_content_type='text/markdown',
     long_description=long_description,
     packages=find_packages(),
     description='An extension to the Django web framework that provides version control for model instances.'

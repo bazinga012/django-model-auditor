@@ -15,10 +15,12 @@ class AuditLog(models.Model):
         current_db_state_of_objects = object.__class__.objects.get(id=object.id)
         second = json.loads(serializers.serialize('json', [current_db_state_of_objects]))[0]
         previous_versions = []
-        for audit_log in cls.objects.filter(object_type=second["model"], object_id=second["pk"]).order_by("-id")[
-                         :limit]:
+        queryset = cls.objects.filter(object_type=second["model"], object_id=second["pk"]).order_by("-id")[:limit]
+        for audit_log in queryset:
             diff = json.loads(audit_log.state_delta)
             first = dictdiffer.revert(diff, second)
+            if first == {}:
+                break
             previous_versions.append(first)
             second = first
         previous_version_objects = []
