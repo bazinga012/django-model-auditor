@@ -4,7 +4,7 @@ django-model-auditor is a Python library for maintaining versions of your django
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
 
 ```bash
 pip install django-model-auditor
